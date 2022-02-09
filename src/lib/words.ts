@@ -1,7 +1,7 @@
 import GraphemeSplitter from 'grapheme-splitter'
 import Riichi from 'riichi'
 import { HANDS } from '../constants/hands'
-import { Tile, Meld, Hand, getTilesOccurrencesMap } from 'hk-mahjong'
+import { Tile, Hand } from 'hk-mahjong'
 
 const graphemeSplitter = new GraphemeSplitter()
 

@@ -1,7 +1,8 @@
 {
-  "name": "mahjong-handle",
+  "name": "mahjongsan",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://samuel314.github.io/mahjongsan/",
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
