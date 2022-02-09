@@ -1,6 +1,7 @@
 import { CharStatus } from '../../lib/statuses'
 import { normalize } from '../../lib/normalize'
 import classnames from 'classnames'
+import images from '../../images'
 
 type Props = {
   value?: string
@@ -23,5 +24,13 @@ export const Cell = ({ value, status }: Props) => {
     }
   )
 
-  return <div className={classes}>{normalize(value)}</div>
+  return (
+    <div className={classes}>
+      {normalize(value)?.length! === 2 ? (
+        <img alt={normalize(value)} src={images[normalize(value)!]} />
+      ) : (
+        normalize(value)
+      )}
+    </div>
+  )
 }

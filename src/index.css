@@ -6,6 +6,9 @@
   animation: revealCharCell linear;
   animation-duration: 0.15s;
 }
+img {
+  max-width: 85%;
+}
 
 @keyframes revealCharCell {
   0% {

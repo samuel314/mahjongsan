@@ -154,3 +154,4 @@ export const getWordOfDay = () => {
 
 export const { solution, wind, isTsumo, solutionIndex, tomorrow } =
   getWordOfDay()
+export { tileToAsciiMap }
