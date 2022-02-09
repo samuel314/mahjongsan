@@ -1,6 +1,7 @@
 import GraphemeSplitter from 'grapheme-splitter'
 import Riichi from 'riichi'
 import { HANDS } from '../constants/hands'
+import { Tile, Meld, Hand, getTilesOccurrencesMap } from 'hk-mahjong'
 
 const graphemeSplitter = new GraphemeSplitter()
 
@@ -105,11 +106,13 @@ export const convertHandToUnicode = (hand: string) => {
 
 export const isInvalidHand = (word: string) => {
   const tiles = graphemeSplitter.splitGraphemes(word)
-  const counts: { [id: string]: number } = {};
-
+  const counts: { [id: string]: number } = {}
+  const t = []
   for (const tile of tiles) {
-    counts[tile] = counts[tile] ? counts[tile] + 1 : 1;
+    t.push(new Tile(tile))
+    counts[tile] = counts[tile] ? counts[tile] + 1 : 1
   }
+  const hand = new Hand({ tiles: t, melds: [] })
 
   for (const tile in counts) {
     if (Object.prototype.hasOwnProperty.call(counts, tile)) {
@@ -118,6 +121,7 @@ export const isInvalidHand = (word: string) => {
       }
     }
   }
+  if (!hand.isWinningHand()) return false
   return true
 }
 

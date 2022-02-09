@@ -18,7 +18,7 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
         </a>{' '}
         -{' '}
         <a
-          href="https://github.com/yf-dev/mahjong-hand-guessing-game"
+          href="https://github.com/samuel314/mahjongsan"
           className="underline font-bold"
         >
           check out the code here

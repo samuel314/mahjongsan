@@ -1,3 +1,8 @@
 html.dark {
   background-color: rgb(15, 23, 42);
+  background-image: url('../mahjong_bg2.jpg');
+  height: 1000px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }

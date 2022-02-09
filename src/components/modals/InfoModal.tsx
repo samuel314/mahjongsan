@@ -10,7 +10,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess the riichi mahjong hand in 6 tries.
+        Guess the mahjong hand in 6 tries.
         <br />
         After each guess, the color of the tiles will change to show how close
         your guess was to the hand.
@@ -18,7 +18,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
 
       <p className="text-sm text-green-700 dark:text-green-500">
         The hand should have one or more yaku and all tiles are sorted in order
-        of numbers and categories(m, p, s, z).
+        of numbers and categories(🀇, 🀙, 🀐, 🀀).
         <br />
         Please note that the last tile is a winning tile, so it is not sorted.
       </p>
@@ -40,7 +40,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The tile 8s is in the hand and in the correct spot.
+        The tile 🀗 is in the hand and in the correct spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -60,7 +60,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The tile 5p is in the hand but in the wrong spot.
+        The tile 🀝 is in the hand but in the wrong spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -80,7 +80,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The tile 6z is not in the hand in any spot.
+        The tile 🀅 is not in the hand in any spot.
       </p>
     </BaseModal>
   )
