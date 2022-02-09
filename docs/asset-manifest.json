@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/mahjongsan/static/css/main.99c01169.css",
-    "main.js": "/mahjongsan/static/js/main.8c1911f5.js",
+    "main.css": "/mahjongsan/static/css/main.3a137e77.css",
+    "main.js": "/mahjongsan/static/js/main.1016758a.js",
     "static/js/787.b6b884d8.chunk.js": "/mahjongsan/static/js/787.b6b884d8.chunk.js",
     "static/media/mahjong_bg2.jpg": "/mahjongsan/static/media/mahjong_bg2.4feb51c4aaea16c005d3.jpg",
+    "static/media/3p.png": "/mahjongsan/static/media/3p.dfbb043473d57739c53c.png",
+    "static/media/2p.png": "/mahjongsan/static/media/2p.517e9731fa8c01f2ca39.png",
+    "static/media/1p.png": "/mahjongsan/static/media/1p.052868286e1ba746784a.png",
     "index.html": "/mahjongsan/index.html",
-    "main.99c01169.css.map": "/mahjongsan/static/css/main.99c01169.css.map",
-    "main.8c1911f5.js.map": "/mahjongsan/static/js/main.8c1911f5.js.map",
+    "main.3a137e77.css.map": "/mahjongsan/static/css/main.3a137e77.css.map",
+    "main.1016758a.js.map": "/mahjongsan/static/js/main.1016758a.js.map",
     "787.b6b884d8.chunk.js.map": "/mahjongsan/static/js/787.b6b884d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99c01169.css",
-    "static/js/main.8c1911f5.js"
+    "static/css/main.3a137e77.css",
+    "static/js/main.1016758a.js"
   ]
 }

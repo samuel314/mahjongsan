@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { KeyValue } from '../../lib/keyboard'
 import { CharStatus } from '../../lib/statuses'
 import { normalize } from '../../lib/normalize'
+import images from '../../images'
 
 type Props = {
   children?: ReactNode
@@ -27,7 +28,7 @@ export const Key = ({
       'bg-slate-400 dark:bg-slate-800 text-white': status === 'absent',
       'bg-green-500 hover:bg-green-600 active:bg-green-700 text-white':
         status === 'correct',
-      'bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-700 text-white':
+      'bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-500 dark:bg-yellow-500 text-white':
         status === 'present',
     }
   )
@@ -43,7 +44,8 @@ export const Key = ({
       className={classes}
       onClick={handleClick}
     >
-      {children || normalize(value)}
+      <img alt="logo" src={images[normalize(value)!]} />
+      {/* {children || normalize(value)} */}
     </button>
   )
 }
