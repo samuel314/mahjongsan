@@ -248,10 +248,7 @@ function App() {
         message={WORD_NOT_FOUND_MESSAGE}
         isOpen={isWordNotFoundAlertOpen}
       />
-      <Alert
-        message={INVALID_HAND_MESSAGE}
-        isOpen={isInvalidHandAlertOpen}
-      />
+      <Alert message={INVALID_HAND_MESSAGE} isOpen={isInvalidHandAlertOpen} />
       <Alert message={CORRECT_WORD_MESSAGE(solution)} isOpen={isGameLost} />
       <Alert
         message={successAlert}
