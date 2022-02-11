@@ -39,6 +39,7 @@ export const Key = ({
   }
 
   const handleOnClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    console.log(event)
     if (
       event.nativeEvent instanceof PointerEvent &&
       event.nativeEvent.pointerType !== 'mouse'
