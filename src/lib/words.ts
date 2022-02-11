@@ -37,9 +37,9 @@ const tileToAsciiMap: { [id: string]: string } = {
   '🀁': '2z',
   '🀂': '3z',
   '🀃': '4z',
-  '🀆': '5z',
+  '🀄': '5z',
   '🀅': '6z',
-  '🀄': '7z',
+  '🀆': '7z',
 }
 
 const tileToUnicodeMap: { [id: string]: string } = {
@@ -74,9 +74,9 @@ const tileToUnicodeMap: { [id: string]: string } = {
   '2z': '🀁',
   '3z': '🀂',
   '4z': '🀃',
-  '5z': '🀆',
+  '5z': '🀄',
   '6z': '🀅',
-  '7z': '🀄',
+  '7z': '🀆',
 }
 
 export const convertHandToAscii = (hand: string) => {

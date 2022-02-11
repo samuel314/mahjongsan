@@ -83,9 +83,9 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
         <Key value="🀁" onClick={onClick} status={charStatuses['🀁']} />
         <Key value="🀂" onClick={onClick} status={charStatuses['🀂']} />
         <Key value="🀃" onClick={onClick} status={charStatuses['🀃']} />
-        <Key value="🀆" onClick={onClick} status={charStatuses['🀆']} />
-        <Key value="🀅" onClick={onClick} status={charStatuses['🀅']} />
         <Key value="🀄" onClick={onClick} status={charStatuses['🀄']} />
+        <Key value="🀅" onClick={onClick} status={charStatuses['🀅']} />
+        <Key value="🀆" onClick={onClick} status={charStatuses['🀆']} />
         <div className="text-xs">
           <Key width={50} value="DELETE" onClick={onClick}>
             {DELETE_TEXT}
