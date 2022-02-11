@@ -1,0 +1,133 @@
+diff --git a/node_modules/hk-mahjong/lib/breadthFirstSearch/ExplorerOfWinningPermutations.js b/node_modules/hk-mahjong/lib/breadthFirstSearch/ExplorerOfWinningPermutations.js
+index 11c171a..7ceae7e 100644
+--- a/node_modules/hk-mahjong/lib/breadthFirstSearch/ExplorerOfWinningPermutations.js
++++ b/node_modules/hk-mahjong/lib/breadthFirstSearch/ExplorerOfWinningPermutations.js
+@@ -63,6 +63,7 @@ class ExplorerOfWinningPermutations {
+             }
+             // Retrieve the first node from the frontier for further processing in the latter part.  Meanwhile, the retrieval action would remove the first node from the frontier.
+             const node = frontier.remove();
++            console.log(node.getUnorganizedTiles().toString());
+             const unorganizedTiles = node.getUnorganizedTiles();
+             // Identify if the Hand is a ThirteenOrphans.
+             if ((0, isThirteenOrphans_1.isThirteenOrphansAsTilesArray)(unorganizedTiles)) {
+@@ -71,7 +72,9 @@ class ExplorerOfWinningPermutations {
+                 break;
+             }
+             const meldsFormed = node.getMeldsFormed();
++            console.log(meldsFormed.map(a => a.toString()));
+             if (meldsFormed.length === 1 && meldsFormed[0].getMeldType() === MeldType_1.MeldType.THIRTEEN_ORPHANS) {
++                console.log("what")
+                 __classPrivateFieldGet(this, _ExplorerOfWinningPermutations_permutationsExplored, "f").push(new WinningHand_1.default(meldsFormed));
+                 break;
+             }
+@@ -80,7 +83,10 @@ class ExplorerOfWinningPermutations {
+                 meldsFormed.length === WinningHand_1.default.NUMBER_OF_MELDS_NEEDED_FOR_STANDARD_FORM &&
+                 (0, eyes_1.hasOnePairOfEyes)(meldsFormed);
+             if (isAbleToFormStandardWinningHand) {
++                console.log("hi")
++                console.log(new WinningHand_1.default(meldsFormed).toString())
+                 __classPrivateFieldGet(this, _ExplorerOfWinningPermutations_permutationsExplored, "f").push(new WinningHand_1.default(meldsFormed));
++                break;
+             }
+             const eyesFormed = (0, eyes_1.default)(unorganizedTiles);
+             const isAbleToFormEyes = eyesFormed !== null;
+diff --git a/node_modules/hk-mahjong/lib/hand/Hand.js b/node_modules/hk-mahjong/lib/hand/Hand.js
+index a43ec92..d024e4d 100644
+--- a/node_modules/hk-mahjong/lib/hand/Hand.js
++++ b/node_modules/hk-mahjong/lib/hand/Hand.js
+@@ -66,7 +66,7 @@ class Hand {
+         }
+         __classPrivateFieldSet(this, _Hand_allTiles, __classPrivateFieldGet(this, _Hand_allTiles, "f").concat(__classPrivateFieldGet(this, _Hand_unorganizedTiles, "f")), "f");
+         if (__classPrivateFieldGet(this, _Hand_allTiles, "f").length < Hand.MIN_NUMBER_OF_TILES) {
+-            throw new Error('Short Hand.');
++            throw new Error('Not enough tiles.');
+         }
+         else if (__classPrivateFieldGet(this, _Hand_allTiles, "f").length > Hand.MAX_NUMBER_OF_TILES) {
+             throw new Error('Long Hand.');
+@@ -168,7 +168,7 @@ _Hand_unorganizedTiles = new WeakMap(), _Hand_meldsFormed = new WeakMap(), _Hand
+ /**
+  * Minimum number of Tiles required in a Mahjong Hand.
+  */
+-Hand.MIN_NUMBER_OF_TILES = 13;
++Hand.MIN_NUMBER_OF_TILES = 14;
+ /**
+  * Maximum number of Tiles accepted in a Mahjong Hand.
+  */
+diff --git a/node_modules/hk-mahjong/lib/index.d.ts b/node_modules/hk-mahjong/lib/index.d.ts
+index b2e1485..5975993 100644
+--- a/node_modules/hk-mahjong/lib/index.d.ts
++++ b/node_modules/hk-mahjong/lib/index.d.ts
+@@ -6,4 +6,5 @@ import Hand from './hand/Hand';
+ import ExplorerOfWinningPermutations from './breadthFirstSearch/ExplorerOfWinningPermutations';
+ import FaanCalculator from './calculateFaan/FaanCalculator';
+ import HandTypeFinder from './hand/handType/HandTypeFinder';
+-export { WinningHand, Hand, FaanCalculator, Meld, meldFormer, Tile, ExplorerOfWinningPermutations, HandTypeFinder };
++import getTilesOccurrencesMap from './tile/getTilesOccurrencesMap';
++export { WinningHand, Hand, FaanCalculator, Meld, meldFormer, Tile, ExplorerOfWinningPermutations, HandTypeFinder, getTilesOccurrencesMap };
+diff --git a/node_modules/hk-mahjong/lib/index.js b/node_modules/hk-mahjong/lib/index.js
+index ff5b691..d48beca 100644
+--- a/node_modules/hk-mahjong/lib/index.js
++++ b/node_modules/hk-mahjong/lib/index.js
+@@ -1,6 +1,6 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+-exports.HandTypeFinder = exports.ExplorerOfWinningPermutations = exports.Tile = exports.meldFormer = exports.Meld = exports.FaanCalculator = exports.Hand = exports.WinningHand = void 0;
++exports.HandTypeFinder = exports.ExplorerOfWinningPermutations = exports.Tile = exports.meldFormer = exports.Meld = exports.FaanCalculator = exports.Hand = exports.WinningHand = exports.getTilesOccurrencesMap = exports.eyes = void 0;
+ const Tile_1 = require("./tile/Tile");
+ exports.Tile = Tile_1.default;
+ const Meld_1 = require("./meld/Meld");
+@@ -17,3 +17,5 @@ const FaanCalculator_1 = require("./calculateFaan/FaanCalculator");
+ exports.FaanCalculator = FaanCalculator_1.default;
+ const HandTypeFinder_1 = require("./hand/handType/HandTypeFinder");
+ exports.HandTypeFinder = HandTypeFinder_1.default;
++const getTilesOccurrencesMap_1 = require("./tile/getTilesOccurrencesMap");
++exports.getTilesOccurrencesMap = getTilesOccurrencesMap_1.default;
+\ No newline at end of file
+diff --git a/node_modules/hk-mahjong/lib/meld/Meld.js b/node_modules/hk-mahjong/lib/meld/Meld.js
+index fea1bef..cd0c39d 100644
+--- a/node_modules/hk-mahjong/lib/meld/Meld.js
++++ b/node_modules/hk-mahjong/lib/meld/Meld.js
+@@ -23,6 +23,7 @@ class Meld {
+      * @param inputTiles the input array of Tiles.
+      */
+     constructor(inputTiles) {
++        console.log(inputTiles.toString())
+         /**
+          * The array of Tiles that form the Meld.
+          */
+@@ -44,6 +45,7 @@ class Meld {
+         const allTilesAreInSameSuit = this.allTilesAreInSameSuit(inputTiles);
+         if (!allTilesAreInSameSuit) {
+             throw new Error('Invalid input of Meld. ll tiles in a meld must have the same suit.');
++            // return null;
+         }
+         if (this.isValidEyes(inputTiles)) {
+             __classPrivateFieldSet(this, _Meld_meldType, MeldType_1.MeldType.EYES, "f");
+@@ -58,6 +60,7 @@ class Meld {
+             __classPrivateFieldSet(this, _Meld_meldType, MeldType_1.MeldType.KONG, "f");
+         }
+         else {
++            // return null;
+             throw new Error('Invalid input of Meld.');
+         }
+         if (__classPrivateFieldGet(this, _Meld_meldType, "f") === MeldType_1.MeldType.CHOW) {
+diff --git a/node_modules/hk-mahjong/lib/meld/eyes.js b/node_modules/hk-mahjong/lib/meld/eyes.js
+index 4149d36..e66812f 100644
+--- a/node_modules/hk-mahjong/lib/meld/eyes.js
++++ b/node_modules/hk-mahjong/lib/meld/eyes.js
+@@ -10,10 +10,12 @@ const MeldType_1 = require("./MeldType");
+  */
+ function eyes(inputTiles) {
+     const copyOfInputTiles = inputTiles.slice();
+-    if (copyOfInputTiles.length !== Meld_1.default.NUMBER_OF_TILES_FOR_EYES) {
+-        return null;
++    if (copyOfInputTiles.length !== Meld_1.default.NUMBER_OF_TILES_FOR_EYES && copyOfInputTiles.length >= Meld_1.default.NUMBER_OF_TILES_FOR_PONG) {
++        if (copyOfInputTiles[0].isIdentical(copyOfInputTiles[1]) && !copyOfInputTiles[2].isIdentical(copyOfInputTiles[1])) {
++            return new Meld_1.default(copyOfInputTiles.slice(0,2));
++        }
+     }
+-    if (copyOfInputTiles[0].isIdentical(copyOfInputTiles[1])) {
++    else if (copyOfInputTiles.length === Meld_1.default.NUMBER_OF_TILES_FOR_EYES && copyOfInputTiles[0].isIdentical(copyOfInputTiles[1])) {
+         return new Meld_1.default(copyOfInputTiles);
+     }
+     return null;

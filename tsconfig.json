@@ -20,7 +20,8 @@
   "exclude": ["src/generateHands.ts"],
   "ts-node": {
     "compilerOptions": {
-      "isolatedModules": false
+      "isolatedModules": false,
+      "sourceMap": true
     }
   }
 }

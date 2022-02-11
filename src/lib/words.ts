@@ -113,6 +113,7 @@ export const isInvalidHand = (word: string) => {
     counts[tile] = counts[tile] ? counts[tile] + 1 : 1
   }
   const hand = new Hand({ tiles: t, melds: [] })
+  console.log(hand.isWinningHand())
 
   for (const tile in counts) {
     if (Object.prototype.hasOwnProperty.call(counts, tile)) {
@@ -121,7 +122,7 @@ export const isInvalidHand = (word: string) => {
       }
     }
   }
-  if (!hand.isWinningHand()) return false
+  // if (!hand.isWinningHand()) return false
   return true
 }
 
