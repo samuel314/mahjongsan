@@ -21,7 +21,7 @@ export const Key = ({
   onClick,
 }: Props) => {
   const classes = classnames(
-    'flex items-center justify-center rounded mx-0.5 cursor-pointer select-none text-white',
+    'flex items-center justify-center rounded mx-0.5 cursor-pointer select-none dark:text-white',
     {
       'bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 active:bg-slate-400':
         !status,
@@ -33,7 +33,7 @@ export const Key = ({
     }
   )
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  const handleClick: React.TouchEventHandler<HTMLButtonElement> = (event) => {
     onClick(value)
     event.currentTarget.blur()
   }
@@ -42,7 +42,7 @@ export const Key = ({
     <button
       style={{ width: `${width}px`, height: '58px' }}
       className={classes}
-      onClick={handleClick}
+      onTouchEnd={handleClick}
     >
       {normalize(value)?.length! === 2 ? (
         <img alt={normalize(value)} src={images[normalize(value)!]} />
