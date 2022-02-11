@@ -34,11 +34,20 @@ export const Key = ({
   )
 
   const handleOnTouch: React.TouchEventHandler<HTMLButtonElement> = (event) => {
+    if (event instanceof MouseEvent) {
+      // switch specific MouseEvent type here or inside another delegator
+      event.preventDefault()
+      return
+    }
     onClick(value)
     event.currentTarget.blur()
   }
 
   const handleOnClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    if (event instanceof TouchEvent) {
+      event.preventDefault()
+      return
+    }
     onClick(value)
     event.currentTarget.blur()
   }
