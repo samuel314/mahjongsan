@@ -39,10 +39,10 @@ export const Key = ({
   }
 
   const handleOnClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    console.log(event)
     if (
-      event.nativeEvent instanceof PointerEvent &&
-      event.nativeEvent.pointerType !== 'mouse'
+      (event.nativeEvent instanceof PointerEvent &&
+        event.nativeEvent.pointerType !== 'mouse') ||
+      event.nativeEvent instanceof MouseEvent
     ) {
       event.preventDefault()
       event.stopPropagation()
