@@ -1,6 +1,6 @@
-# Mahjong Hand Guessing Game
+# Mahjongsan - A Mahjong Hand Guessing Game
 
-[https://mahjong-handle.update.sh/](https://mahjong-handle.update.sh/)
+[https://samuel314.github.io/mahjongsan/](https://samuel314.github.io/mahjongsan/)
 
 This is a clone project of a popular word guessing game made using React, Typescript, and Tailwind.
 
@@ -8,7 +8,7 @@ _To Run Locally:_
 Clone the repository and perform the following command line actions:
 
 ```bash
-$ cd mahjong-hand-guessing-game
+$ cd mahjongsan
 $ npm install
 $ npm run start
 ```
