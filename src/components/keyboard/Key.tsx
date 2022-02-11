@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
 import classnames from 'classnames'
-import { KeyValue } from '../../lib/keyboard'
-import { CharStatus } from '../../lib/statuses'
-import { normalize } from '../../lib/normalize'
+import { ReactNode } from 'react'
 import images from '../../images'
+import { KeyValue } from '../../lib/keyboard'
+import { normalize } from '../../lib/normalize'
+import { CharStatus } from '../../lib/statuses'
 
 type Props = {
   children?: ReactNode
@@ -33,7 +33,10 @@ export const Key = ({
     }
   )
 
+  var dragging = false
+
   const handleOnTouch: React.TouchEventHandler<HTMLButtonElement> = (event) => {
+    if (dragging) return
     onClick(value)
     event.currentTarget.blur()
   }
@@ -52,10 +55,23 @@ export const Key = ({
     return
   }
 
+  const handleTouchMove: React.TouchEventHandler<HTMLButtonElement> = (
+    event
+  ) => {
+    dragging = true
+  }
+  const handleTouchStart: React.TouchEventHandler<HTMLButtonElement> = (
+    event
+  ) => {
+    dragging = false
+  }
+
   return (
     <button
       style={{ width: `${width}px`, height: '58px' }}
       className={classes}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleOnTouch}
       onClick={handleOnClick}
     >
