@@ -17,6 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     env:
       REACT_APP_SALT: ${{ secrets.REACT_APP_SALT }}
     steps:
