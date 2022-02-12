@@ -8,11 +8,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_SALT: ${{ secrets.REACT_APP_SALT }}
     steps:
       - uses: actions/checkout@v2
       - run: |
           npm install
       - run: |
           npm run test
-      - env:
-        REACT_APP_SALT: ${{ secrets.REACT_APP_SALT }}
