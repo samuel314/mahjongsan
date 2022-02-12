@@ -18,11 +18,13 @@ export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
 export const loadGameStateFromLocalStorage = () => {
   const state = localStorage.getItem(gameStateKey)
   const gameState = state ? (JSON.parse(state) as StoredGameState) : null
+  if (gameState === null) return gameState
+
   const decryptedSolution = decryptData(
-    gameState!.solution,
+    gameState.solution,
     process.env.REACT_APP_SALT!
   )
-  gameState!.solution = decryptedSolution
+  gameState.solution = decryptedSolution
   return gameState
 }
 
