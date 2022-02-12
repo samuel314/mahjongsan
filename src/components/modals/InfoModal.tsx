@@ -9,14 +9,14 @@ type Props = {
 export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
+      <p className="text-xl text-gray-500 dark:text-gray-300">
         Guess the mahjong hand in 6 tries.
         <br />
         After each guess, the color of the tiles will change to show how close
         your guess was to the hand.
       </p>
 
-      <p className="text-sm text-green-700 dark:text-green-500">
+      <p className="text-xl text-green-700 dark:text-green-500">
         The hand should have one or more yaku and all tiles are sorted in order
         of numbers and categories(🀇, 🀙, 🀐, 🀀).
         <br />
@@ -39,7 +39,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀅" />
         <Cell value="🀔" />
       </div>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
+      <p className="text-xl text-gray-500 dark:text-gray-300">
         The tile 🀗 is in the hand and in the correct spot.
       </p>
 
@@ -59,7 +59,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀅" />
         <Cell value="🀔" />
       </div>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
+      <p className="text-xl text-gray-500 dark:text-gray-300">
         The tile 🀝 is in the hand but in the wrong spot.
       </p>
 
@@ -79,7 +79,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀅" status="absent" />
         <Cell value="🀔" />
       </div>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
+      <p className="text-xl text-gray-500 dark:text-gray-300">
         The tile 🀅 is not in the hand in any spot.
       </p>
     </BaseModal>

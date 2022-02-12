@@ -1,7 +1,7 @@
 html.dark {
   background-color: rgb(15, 23, 42);
-  background-image: url('../mahjong_bg2.jpg');
+  /* background-image: url('../mahjong_bg2.jpg');
   background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  /* background-repeat: no-repeat; /* Do not repeat the image */
+  /* background-size: cover; /* Resize the background image to cover the entire container */
 }

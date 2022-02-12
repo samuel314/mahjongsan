@@ -1,3 +1,4 @@
+import { encryptData, decryptData } from './utils'
 const gameStateKey = 'gameState'
 
 type StoredGameState = {
@@ -6,12 +7,23 @@ type StoredGameState = {
 }
 
 export const saveGameStateToLocalStorage = (gameState: StoredGameState) => {
+  const encryptedSolution = encryptData(
+    gameState.solution,
+    process.env.REACT_APP_SALT!
+  )
+  gameState.solution = encryptedSolution
   localStorage.setItem(gameStateKey, JSON.stringify(gameState))
 }
 
 export const loadGameStateFromLocalStorage = () => {
   const state = localStorage.getItem(gameStateKey)
-  return state ? (JSON.parse(state) as StoredGameState) : null
+  const gameState = state ? (JSON.parse(state) as StoredGameState) : null
+  const decryptedSolution = decryptData(
+    gameState!.solution,
+    process.env.REACT_APP_SALT!
+  )
+  gameState!.solution = decryptedSolution
+  return gameState
 }
 
 const gameStatKey = 'gameStats'
