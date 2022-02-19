@@ -37,6 +37,9 @@ import {
 import { HAND_SIZE, GUESS_MAX } from './constants/settings'
 
 import './App.css'
+import './i18n'
+import { useTranslation } from 'react-i18next'
+import { availableLanguages } from './i18n'
 
 const ALERT_TIME_MS = 2000
 const graphemeSplitter = new GraphemeSplitter()
@@ -49,6 +52,7 @@ const windMap: { [id: number]: string } = {
 }
 
 function App() {
+  const { i18n } = useTranslation()
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches
@@ -200,6 +204,14 @@ function App() {
           className="h-6 w-6 cursor-pointer dark:stroke-white"
           onClick={() => setIsStatsModalOpen(true)}
         />
+        <select
+          defaultValue={i18n.language}
+          onChange={(e) => i18n.changeLanguage(e.target.value)}
+        >
+          {availableLanguages.map((language) => (
+            <option key={language}>{language}</option>
+          ))}
+        </select>
       </div>
       <div className="flex w-full mx-auto items-center mb-8 mt-12">
         <h2 className="text-lg w-full text-center font-bold dark:text-white">

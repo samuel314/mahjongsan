@@ -1,5 +1,7 @@
 import { Cell } from '../grid/Cell'
 import { BaseModal } from './BaseModal'
+import { useTranslation } from 'react-i18next'
+import images from '../../images'
 
 type Props = {
   isOpen: boolean
@@ -7,20 +9,31 @@ type Props = {
 }
 
 export const InfoModal = ({ isOpen, handleClose }: Props) => {
+  const { t } = useTranslation()
   return (
-    <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal
+      title={t('info_title')}
+      isOpen={isOpen}
+      handleClose={handleClose}
+    >
       <p className="text-xl text-gray-500 dark:text-gray-300">
-        Guess the mahjong hand in 6 tries.
+        {t('info_1')}
         <br />
-        After each guess, the color of the tiles will change to show how close
-        your guess was to the hand.
+        {t('info_2')}
       </p>
 
       <p className="text-xl text-green-700 dark:text-green-500">
-        The hand should have one or more yaku and all tiles are sorted in order
-        of numbers and categories(🀇, 🀙, 🀐, 🀀).
+        {t('info_3')}
+        <img className="inline w-[20px]" alt={'1m'} src={images['1m']} />
+        {t('comma')}
+        <img className="inline w-[20px]" alt={'1p'} src={images['1p']} />
+        {t('comma')}
+        <img className="inline w-[20px]" alt={'1s'} src={images['1s']} />
+        {t('comma')}
+        <img className="inline w-[20px]" alt={'1z'} src={images['1z']} />)
+        {t('footstop')}
         <br />
-        Please note that the last tile is a winning tile, so it is not sorted.
+        {t('info_4')}
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -40,7 +53,9 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-xl text-gray-500 dark:text-gray-300">
-        The tile 🀗 is in the hand and in the correct spot.
+        {t('info_tile_begin')}
+        <img className="inline w-[20px]" alt={'8s'} src={images['8s']} />
+        {t('info_5')}
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -60,7 +75,9 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-xl text-gray-500 dark:text-gray-300">
-        The tile 🀝 is in the hand but in the wrong spot.
+        {t('info_tile_begin')}
+        <img className="inline w-[20px]" alt={'5p'} src={images['5p']} />
+        {t('info_6')}
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -80,7 +97,9 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🀔" />
       </div>
       <p className="text-xl text-gray-500 dark:text-gray-300">
-        The tile 🀅 is not in the hand in any spot.
+        {t('info_tile_begin')}
+        <img className="inline w-[20px]" alt={'6z'} src={images['6z']} />
+        {t('info_7')}
       </p>
     </BaseModal>
   )

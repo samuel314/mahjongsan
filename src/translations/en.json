@@ -1,0 +1,15 @@
+{
+  "common": {
+    "info_title": "How to play Mahjongsan",
+    "info_1": "Guess the mahjong hand in 8 tries.",
+    "info_2": "After each guess, the color of the tiles will change to show how close your guess was to the hand.",
+    "info_3": "The hand should have one or more yaku and all tiles are sorted in order of numbers and categories(",
+    "info_4": "Please note that the last tile is a winning tile, so it is not sorted.",
+    "info_tile_begin": "The tile ",
+    "info_5": " is in the hand and in the correct spot.",
+    "info_6": " is in the hand but in the wrong spot.",
+    "info_7": " is not in the hand in any spot.",
+    "comma": ",",
+    "footstop": "."
+  }
+}
